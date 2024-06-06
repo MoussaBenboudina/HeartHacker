@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Do You Love Me?</title>
+    <style>
+      .box {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .buttons {
+        display: inline-block;
+      }
+      .button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>do you Love me ? <img src="./heart.png" alt="" /></h2>
+      <div class="buttons">
+        <button class="button yes">YES</button>
+        <button class="button no">NO</button>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const noButton = document.querySelector(".button.no");
+        const yesButton = document.querySelector(".yes");
+
+        yesButton.addEventListener("click", () => {
+          alert("I love you too");
+        });
+
+        function moveButton() {
+          const randomX =
+            Math.random() * (window.innerWidth - noButton.clientWidth);
+          const randomY =
+            Math.random() * (window.innerHeight - noButton.clientHeight);
+          noButton.style.position = "absolute";
+          noButton.style.left = `${randomX}px`;
+          noButton.style.top = `${randomY}px`;
+        }
+
+        noButton.addEventListener("mouseover", moveButton);
+        noButton.addEventListener("touchstart", moveButton);
+      });
+    </script>
+  </body>
+</html>
